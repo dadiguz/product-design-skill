@@ -4,6 +4,8 @@ Skill para agentes de código (Claude Code y compatibles) que convierte notas de
 
 Antes de escribir el ticket, el skill lee el producto y te dice qué choca con lo que existe hoy, qué falta definir y qué otras partes se verían afectadas. Tú respondes unas pocas preguntas y recibes un ticket listo para pegar.
 
+También responde preguntas sobre cómo funciona el producto hoy, sin tecnicismos.
+
 No necesitas saber de código. Habla de pantallas, botones, drawers, tablas y filtros; el skill se encarga de traducirlo.
 
 ---
@@ -102,6 +104,27 @@ Responde las preguntas o escribe "ok" para usar los supuestos.
 **4. Respuesta.** Contesta en corto: `1b, 2a`. O escribe `ok` para aceptar los supuestos. Si algo de tu respuesta genera un nuevo choque, el skill pregunta solo eso.
 
 **5. Ticket.** Recibes el ticket en un bloque listo para copiar. Pide ajustes en lenguaje normal ("quita el paso 4", "agrega que solo aplica a administradores") y se regenera completo.
+
+### Preguntas sobre el producto
+
+El skill también responde preguntas sobre cómo funciona el producto hoy, con el mismo lenguaje no técnico. No necesitas pedir un ticket.
+
+```
+/ticket ¿Un usuario gratuito puede descargar canciones?
+```
+
+```
+No. La opción "Descargar" solo aparece en cuentas Premium.
+
+- En cuentas gratuitas el botón se muestra bloqueado y abre la pantalla de planes.
+- En web no existe la descarga para ningún plan.
+```
+
+- Responde primero sí, no o qué pasa, y luego las condiciones que importan: rol, plan, plataforma o estado.
+- Si algo no existe o no está definido, lo dice. No adivina.
+- Si la respuesta depende de algo fuera del código (datos, configuración externa), lo aclara.
+- Si la respuesta muestra un hueco o algo que quieres cambiar, ofrece convertirlo en ticket con lo que ya revisó.
+- Puedes seguir preguntando; mantiene el contexto.
 
 ### Opciones
 

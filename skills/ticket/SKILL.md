@@ -1,6 +1,6 @@
 ---
 name: ticket
-description: Turns meeting notes, transcripts or a plain request into a simple, non-technical product ticket, using the repository where the agent runs as context. Reads the code to find what the request affects, what is missing, and where it contradicts how the product works today, asks a few short questions, and only then writes the ticket (Description, Current/Expected state, User Journey, Constraints or Conditions). Use on /ticket, "crea un ticket", "haz tickets de esta junta", "convierte estas notas en tickets", "write a ticket for", or when the user pastes meeting notes and asks what to build. Skip for code changes, bug debugging or technical design docs.
+description: Turns meeting notes, transcripts or a plain request into a simple, non-technical product ticket, using the repository where the agent runs as context. Reads the code to find what the request affects, what is missing, and where it contradicts how the product works today, asks a few short questions, and only then writes the ticket (Description, Current/Expected state, User Journey, Constraints or Conditions). Also answers questions about how the product works today in the same non-technical language ("¿qué pasa si...?", "¿quién puede...?", "¿dónde se ve...?"). Use on /ticket, "crea un ticket", "haz tickets de esta junta", "convierte estas notas en tickets", "write a ticket for", when the user pastes meeting notes and asks what to build, or asks how the product behaves. Skip for code changes, bug debugging or technical design docs.
 ---
 
 # Ticket
@@ -8,7 +8,8 @@ description: Turns meeting notes, transcripts or a plain request into a simple, 
 Meeting notes are ambiguous. The code is not. This skill reads the request,
 checks it against what the product does today, surfaces the conflicts and
 gaps before anyone builds, and writes a ticket a non-technical person can
-own.
+own. It also answers questions about how the product works, in the same
+language.
 
 The person using this skill is not technical. They know what a drawer, a
 modal, a table, a filter or a tab is. They do not know component names,
@@ -39,7 +40,12 @@ sense from the screen, not from the code.
 
 ## Flow
 
-Do not skip step 3. Do not write the ticket before the user accepts the
+Two modes share steps 0 and 2:
+
+- **Ticket:** steps 0 to 4.
+- **Question:** step 0, step 2, then "Answering questions" below.
+
+Do not skip step 3 in ticket mode. Do not write the ticket before the user accepts the
 review.
 
 ### 0. Sync
@@ -70,6 +76,10 @@ Tell the user one line, without technical detail:
 Accept anything: meeting notes, transcript, chat export, a one-line
 request, screenshots.
 
+- If the input is a question about how the product works ("¿qué pasa
+  si...?", "¿quién puede...?", "¿se puede...?", "¿dónde aparece...?"),
+  switch to question mode. A question inside meeting notes that also ask
+  for changes stays in ticket mode and becomes part of the review.
 - If nothing was provided, reply with one line:
   `Pega las notas de la junta o describe lo que se necesita.`
 - If the input contains several independent requests, list them in one
@@ -225,6 +235,34 @@ Section rules:
   final section `## Referencias para desarrollo` with the relevant
   locations in the code. Never by default.
 
+## Answering questions
+
+Same rules as the rest of the skill: grounded in the code, no technical
+vocabulary, no emojis, no filler. After step 0, investigate with step 2
+and answer in this shape:
+
+```
+<Direct answer in one or two sentences: yes, no, or what happens.>
+
+- <Condition, exception or detail that matters, one line each, max five.>
+```
+
+- Answer from the user's point of view: what they see, what they can
+  do, which role can do it, which message appears.
+- If the behavior differs by role, plan, platform (web, móvil) or state,
+  say so in the bullets.
+- If you did not find it, say it plainly: `No encontré esa función en el
+  producto.` or `No encontré una regla para ese caso; hoy no está
+  definido.` Never guess.
+- If something cannot be known from the code (data volume, how many
+  users do something, configuration managed outside the product), say
+  that it depends on data or configuration outside the code.
+- If the answer reveals a gap or something the user seems to want
+  changed, end with one line: `¿Lo convierto en ticket?` On yes, continue
+  from step 3 with what you already investigated.
+- Follow-up questions keep the context. Do not repeat the sync or
+  previous answers.
+
 ## Anti-patterns
 
 - **Echoing the notes.** A ticket that restates the meeting is not a
@@ -234,6 +272,9 @@ Section rules:
 - **Reviewing without reading.** Huecos like "consider error handling"
   that would apply to any product are noise. Every bullet must be
   specific to this product and this request.
+- **Over-answering.** A question gets an answer, not a review. Do not
+  list choques or huecos unless asked or unless the answer is "no está
+  definido".
 - **Leaking the code.** "El componente DrawerPlayer" is wrong. "El drawer
   que se abre al reproducir una canción" is right.
 - **Solutioning.** Describe behavior and conditions, not implementation.
