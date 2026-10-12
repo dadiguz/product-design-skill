@@ -1,0 +1,21 @@
+{
+  "name": "product-design-skill",
+  "owner": {
+    "name": "Dario Diaz",
+    "url": "https://github.com/dadiguz"
+  },
+  "plugins": [
+    {
+      "name": "product-design-skill",
+      "source": "./",
+      "description": "Turns meeting notes and requests into simple, non-technical product tickets, reviewed against the code of the repository where the agent runs.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Dario Diaz"
+      },
+      "repository": "https://github.com/dadiguz/product-design-skill",
+      "category": "productivity",
+      "keywords": ["tickets", "product", "requirements", "user-journey", "meeting-notes"]
+    }
+  ]
+}
