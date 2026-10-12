@@ -49,11 +49,12 @@ Supuestos
 Preguntas
 1. ¿Cuánto tiempo se conserva la cola? (a) hasta cerrar sesión (b) siempre, hasta que el usuario la vacíe
 2. En web, ¿arrastrar reemplaza a "Subir" y "Bajar"? (a) conviven (recomendado, accesibilidad) (b) se reemplazan
+3. ¿El ticket en inglés? (a) sí (b) español
 
 Responde las preguntas o escribe "ok" para usar los supuestos.
 ```
 
-User answers: `1b, 2a`
+User answers: `1b, 2a, 3b`
 
 ## Step 4. Ticket
 

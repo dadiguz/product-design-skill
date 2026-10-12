@@ -25,6 +25,8 @@ Un ticket con estas secciones:
 
 El ticket nunca menciona archivos, componentes ni términos técnicos. Usa los nombres que se ven en pantalla.
 
+Por defecto el ticket se escribe en inglés (Description, Current state, Expected state, User Journey, Constraints or Conditions, Open questions). El skill te lo confirma en la revisión y puedes pedirlo en español. La conversación siempre es en tu idioma.
+
 ---
 
 ## Instalación
@@ -91,6 +93,7 @@ Supuestos
 Preguntas
 1. ¿Cuánto tiempo se conserva la cola? (a) hasta cerrar sesión (b) siempre
 2. En web, ¿arrastrar reemplaza a "Subir" y "Bajar"? (a) conviven (recomendado) (b) se reemplazan
+3. ¿El ticket en inglés? (a) sí (b) español
 
 Responde las preguntas o escribe "ok" para usar los supuestos.
 ```
@@ -101,9 +104,9 @@ Responde las preguntas o escribe "ok" para usar los supuestos.
 | Huecos | Casos que tu pedido no define y alguien tendrá que decidir. |
 | Impacto | Otras pantallas o flujos que cambiarían sin que lo hayas pedido. |
 | Supuestos | Lo que el skill asumirá si no dices otra cosa. |
-| Preguntas | Máximo cinco, numeradas y con opciones. |
+| Preguntas | Máximo cinco, numeradas y con opciones. Al final siempre pregunta si el ticket va en inglés; se pregunta una vez por sesión. |
 
-**4. Respuesta.** Contesta en corto: `1b, 2a`. O escribe `ok` para aceptar los supuestos. Si algo de tu respuesta genera un nuevo choque, el skill pregunta solo eso.
+**4. Respuesta.** Contesta en corto: `1b, 2a, 3a`. O escribe `ok` para aceptar los supuestos y el ticket en inglés. Si algo de tu respuesta genera un nuevo choque, el skill pregunta solo eso.
 
 **5. Ticket.** Recibes el ticket en un bloque listo para copiar. Pide ajustes en lenguaje normal ("quita el paso 4", "agrega que solo aplica a administradores") y se regenera completo.
 
