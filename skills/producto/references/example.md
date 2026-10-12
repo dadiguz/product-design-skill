@@ -5,7 +5,7 @@ A music app. The user pastes notes from a product meeting.
 ## Input
 
 ```
-/ticket
+/producto
 Junta producto 10/oct
 - Ana: los usuarios se quejan de que al cerrar el drawer de la canción se
   pierde la cola. Queremos que la cola se guarde.

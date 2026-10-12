@@ -1,9 +1,9 @@
 ---
-name: ticket
-description: Turns meeting notes, transcripts or a plain request into a simple, non-technical product ticket, using the repository where the agent runs as context. Reads the code to find what the request affects, what is missing, and where it contradicts how the product works today, asks a few short questions, and only then writes the ticket (Description, Current/Expected state, User Journey, Constraints or Conditions). Also answers questions about how the product works today in the same non-technical language ("¿qué pasa si...?", "¿quién puede...?", "¿dónde se ve...?"). Use on /ticket, "crea un ticket", "haz tickets de esta junta", "convierte estas notas en tickets", "write a ticket for", when the user pastes meeting notes and asks what to build, or asks how the product behaves. Skip for code changes, bug debugging or technical design docs.
+name: producto
+description: Turns meeting notes, transcripts or a plain request into a simple, non-technical product ticket, using the repository where the agent runs as context. Reads the code to find what the request affects, what is missing, and where it contradicts how the product works today, asks a few short questions, and only then writes the ticket (Description, Current/Expected state, User Journey, Constraints or Conditions). Also answers questions about how the product works today in the same non-technical language ("¿qué pasa si...?", "¿quién puede...?", "¿dónde se ve...?"). Use on /producto, "crea un ticket", "haz tickets de esta junta", "convierte estas notas en tickets", "write a ticket for", when the user pastes meeting notes and asks what to build, or asks how the product behaves. Skip for code changes, bug debugging or technical design docs.
 ---
 
-# Ticket
+# Producto
 
 Meeting notes are ambiguous. The code is not. This skill reads the request,
 checks it against what the product does today, surfaces the conflicts and

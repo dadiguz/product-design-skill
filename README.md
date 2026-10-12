@@ -1,4 +1,4 @@
-# ticket
+# producto
 
 Skill para agentes de código (Claude Code y compatibles) que convierte notas de juntas o una instrucción en un ticket de producto simple y no técnico, revisado contra el código del repositorio donde se ejecuta.
 
@@ -40,20 +40,22 @@ El ticket nunca menciona archivos, componentes ni términos técnicos. Usa los n
 
 ```bash
 git clone https://github.com/dadiguz/product-design-skill
-cp -r product-design-skill/skills/ticket ~/.claude/skills/ticket
+cp -r product-design-skill/skills/producto ~/.claude/skills/producto
 ```
 
-Para otros agentes, copia la carpeta `skills/ticket` al directorio de skills que use tu agente.
+Para otros agentes, copia la carpeta `skills/producto` al directorio de skills que use tu agente.
+
+Con la instalación manual el comando es `/producto`. Como plugin, Claude Code puede mostrarlo como `/product-design-skill:producto`.
 
 ---
 
 ## Uso
 
 1. Abre el agente **en la carpeta del proyecto** sobre el que quieres el ticket. El skill solo conoce el código de la carpeta donde se ejecuta.
-2. Escribe `/ticket` y pega lo que tengas: notas de la junta, una transcripción o una frase.
+2. Escribe `/producto` y pega lo que tengas: notas de la junta, una transcripción o una frase.
 
 ```
-/ticket
+/producto
 Junta producto: al cerrar el drawer de la canción se pierde la cola.
 Queremos que se guarde y que se pueda reordenar arrastrando.
 ```
@@ -110,7 +112,7 @@ Responde las preguntas o escribe "ok" para usar los supuestos.
 El skill también responde preguntas sobre cómo funciona el producto hoy, con el mismo lenguaje no técnico. No necesitas pedir un ticket.
 
 ```
-/ticket ¿Un usuario gratuito puede descargar canciones?
+/producto ¿Un usuario gratuito puede descargar canciones?
 ```
 
 ```
@@ -149,10 +151,10 @@ Pídelas en la conversación cuando las necesites:
 ## Estructura
 
 ```
-skills/ticket/
+skills/producto/
   SKILL.md               instrucciones del skill
   references/example.md  ejecución completa de ejemplo
 .claude-plugin/          manifiestos para instalar como plugin
 ```
 
-Para cambiar el formato del ticket, el tono o las secciones, edita `skills/ticket/SKILL.md`.
+Para cambiar el formato del ticket, el tono o las secciones, edita `skills/producto/SKILL.md`.
