@@ -17,7 +17,8 @@ sense from the screen, not from the code.
 
 ## Rules
 
-1. **Read-only.** Never edit, create or delete code. You only read.
+1. **Read-only.** Never edit, create or delete code. You only read. The
+   only exception is the git sync in step 0.
 2. **No technical leakage.** Never show file names, paths, component
    names, function names, variables, endpoints, tables, fields, libraries
    or framework terms. Translate everything to what a user sees:
@@ -38,8 +39,31 @@ sense from the screen, not from the code.
 
 ## Flow
 
-Four steps. Do not skip step 3. Do not write the ticket before the user
-accepts the review.
+Do not skip step 3. Do not write the ticket before the user accepts the
+review.
+
+### 0. Sync
+
+Review the latest version of the product, not a stale local copy. Run
+this before anything else, once per session.
+
+1. If the directory is not a git repository, skip this step.
+2. Find the default branch: `git symbolic-ref refs/remotes/origin/HEAD`
+   (usually `main` or `master`). If it is not set, use whichever of
+   `origin/main` or `origin/master` exists.
+3. `git fetch origin`.
+4. If the current branch is the default branch and there are no local
+   changes (`git status --porcelain` is empty), run
+   `git pull --ff-only`. Investigate the working tree.
+5. Otherwise, do not pull, switch branches, stash or touch local work.
+   Investigate the default branch directly from the remote:
+   `git grep <term> origin/<default>`, `git show origin/<default>:<path>`,
+   `git ls-tree -r --name-only origin/<default>`.
+
+Tell the user one line, without technical detail:
+- Success: `Revisando la versión más reciente del producto.`
+- Fetch failed (no network, no access): `No pude obtener los últimos
+  cambios; reviso la versión local.` Continue with the local copy.
 
 ### 1. Intake
 

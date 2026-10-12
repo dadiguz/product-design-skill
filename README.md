@@ -60,6 +60,8 @@ También se activa sin el comando si pides algo como "haz tickets de estas notas
 
 ### El flujo
 
+**0. Actualización.** Antes de empezar, el skill trae los últimos cambios de la rama principal (`main` o `master`) para revisar la versión más reciente del producto. Si estás en la rama principal sin cambios propios, la actualiza. Si estás en otra rama o tienes cambios sin guardar, no toca nada y revisa la versión remota directamente. Si no hay conexión, te avisa y usa la copia local.
+
 **1. Entrada.** Si las notas traen varios pedidos, el skill los lista y te pregunta cuáles convertir. Ignora lo que no es trabajo de producto.
 
 **2. Revisión del producto.** El skill busca en el código cómo funciona hoy esa parte: reglas, límites, permisos, estados vacíos y de error, y en qué otras pantallas aparece lo mismo. No modifica nada.
