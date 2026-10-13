@@ -35,8 +35,8 @@ sense from the screen, not from the code.
 5. **Language.** Talk to the user in their language. The ticket itself
    is written in English by default; confirm it in the review (see step
    3). In English, the sections are Description, Current state, Expected
-   state, User Journey, Constraints or Conditions and Open questions, and
-   "Fuera de alcance" becomes "Out of scope". Labels quoted from the
+   state, User Journey, Constraints or Conditions, Open questions and
+   Follow-up. Labels quoted from the
    product stay exactly as the product shows them.
 6. **Ask only what changes the ticket.** If a sensible default exists,
    assume it and state the assumption instead of asking.
@@ -165,6 +165,14 @@ Rules for this message:
   mark it `(recomendado)` only when there is a real reason.
 - Prioritize. A choque comes before a hueco. A hueco that blocks the
   ticket comes before a nice-to-have.
+- Exclusions are a question, never a decision. If something close to
+  the request could be read as part of it and you think it should stay
+  out, ask before excluding it, one question per item:
+  `¿<tema> queda fuera de este ticket? (a) sí, ya existe un ticket
+  (dime cuál) (b) sí, hay que crear un ticket aparte (c) no, se incluye
+  (d) no aplica, no lo menciones`.
+  Only raise topics the request or the notes actually touch. Never bring
+  up unrelated features, integrations or markets to exclude them.
 - The last question is always the ticket language, and it does not
   count toward the five: `¿El ticket en inglés? (a) sí (b) español`.
   "ok" means English. Ask it once per session; reuse the answer for
@@ -204,7 +212,9 @@ the solution details.>
 ## Constraints or Conditions
 - <verifiable rule: who can, when, limits, required data, messages>
 - <what must not change>
-- Fuera de alcance: <what this ticket explicitly does not cover>
+
+## Follow-up
+- <ID or link of an existing ticket>: <what it covers, one line>
 ```
 
 Section rules:
@@ -220,6 +230,18 @@ Section rules:
   answers and assumptions from step 3. Include side effects from
   "Impacto" as conditions ("El drawer en Biblioteca mantiene su
   comportamiento actual").
+- **Limits are conditions, not exclusions.** Write what this ticket
+  allows ("Un usuario tiene como máximo un club favorito"), never what
+  it leaves out ("Fuera de alcance: más de un club favorito").
+- **No out-of-scope lines.** The ticket never lists excluded topics.
+  Anything that is not part of this ticket is simply not mentioned.
+- **Follow-up:** include it only for work that has its own ticket that
+  already exists, with its ID or link. Verify the ticket in the tracker
+  when a tool is available; otherwise use the ID the user gave. If the
+  user answered "hay que crear un ticket aparte", offer to create it
+  after this one and add the Follow-up line once it exists. If no
+  follow-up ticket exists, omit the section and do not mention the topic
+  anywhere.
 - **Pendientes:** add this section at the end only if the user chose to
   leave a question open. One line per open question.
 - No technical vocabulary anywhere in the ticket (see rule 2).
@@ -227,6 +249,9 @@ Section rules:
 ### After the ticket
 
 - Adjustments: apply them and show the full updated ticket again.
+- Follow-up tickets: when a follow-up ticket is created, add its ID or
+  link to the Follow-up section of the original ticket and update the
+  original in the tracker if it was already published there.
 - Several tickets: write them one after another, each with its own
   block, after a single acceptance.
 - Save or publish only if the user asks: write to a markdown file in the
@@ -286,6 +311,10 @@ and answer in this shape:
   que se abre al reproducir una canción" is right.
 - **Solutioning.** Describe behavior and conditions, not implementation.
   The ticket says what must happen, not how to build it.
+- **Scope padding.** "Out of scope: X (separate ticket)" when no such
+  ticket exists, or listing topics nobody asked about, makes the ticket
+  look larger and less trustworthy. If it is not in this ticket and has
+  no ticket of its own, leave it out entirely.
 - **Inflated tickets.** If the description needs more than four
   sentences, the request is probably two tickets. Propose the split.
 

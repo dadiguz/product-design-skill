@@ -89,7 +89,6 @@ Los usuarios pierden su cola de reproducción cada vez que cierran el drawer de 
 - Cuentas gratuitas mantienen el límite de 50 canciones en la cola.
 - La canción que se está reproduciendo no se interrumpe al reordenar.
 - En web, "Subir" y "Bajar" mantienen su comportamiento actual.
-- Fuera de alcance: compartir colas entre dispositivos.
 ```
 
 ¿Lo ajusto o lo damos por bueno?

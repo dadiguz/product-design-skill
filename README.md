@@ -20,12 +20,13 @@ Un ticket con estas secciones:
 | **Estado actual** | Cómo funciona hoy. Solo aparece si el ticket cambia algo existente. |
 | **Estado esperado** | Cómo debe funcionar después del cambio. Solo junto a Estado actual. |
 | **User Journey** | Pasos numerados de lo que hace el usuario y lo que responde el producto, con caminos alternos. |
-| **Constraints or Conditions** | Reglas verificables: quién puede, límites, mensajes, qué no debe cambiar y qué queda fuera de alcance. |
+| **Constraints or Conditions** | Reglas verificables: quién puede, límites, mensajes, qué no debe cambiar. Los límites se escriben como condiciones, no como exclusiones. |
 | **Pendientes** | Solo si decidiste dejar una pregunta abierta. |
+| **Follow-up** | Solo si lo que queda fuera ya tiene su propio ticket creado, con su ID o link. |
 
 El ticket nunca menciona archivos, componentes ni términos técnicos. Usa los nombres que se ven en pantalla.
 
-Por defecto el ticket se escribe en inglés (Description, Current state, Expected state, User Journey, Constraints or Conditions, Open questions). El skill te lo confirma en la revisión y puedes pedirlo en español. La conversación siempre es en tu idioma.
+Por defecto el ticket se escribe en inglés (Description, Current state, Expected state, User Journey, Constraints or Conditions, Open questions, Follow-up). El skill te lo confirma en la revisión y puedes pedirlo en español. La conversación siempre es en tu idioma.
 
 ---
 
@@ -104,6 +105,7 @@ Responde las preguntas o escribe "ok" para usar los supuestos.
 | Huecos | Casos que tu pedido no define y alguien tendrá que decidir. |
 | Impacto | Otras pantallas o flujos que cambiarían sin que lo hayas pedido. |
 | Supuestos | Lo que el skill asumirá si no dices otra cosa. |
+| Exclusiones | Si algo cercano al pedido debería quedar fuera, el skill lo pregunta antes: si queda fuera, si ya tiene ticket, si hay que crearlo o si no se menciona. |
 | Preguntas | Máximo cinco, numeradas y con opciones. Al final siempre pregunta si el ticket va en inglés; se pregunta una vez por sesión. |
 
 **4. Respuesta.** Contesta en corto: `1b, 2a, 3a`. O escribe `ok` para aceptar los supuestos y el ticket en inglés. Si algo de tu respuesta genera un nuevo choque, el skill pregunta solo eso.
@@ -146,6 +148,7 @@ Pídelas en la conversación cuando las necesites:
 
 - **Pega las notas completas.** El skill filtra el ruido; lo que falte no lo puede adivinar.
 - **Usa los nombres que ves en pantalla.** "La pestaña Mis pedidos" encuentra el lugar correcto más rápido que "la sección de compras".
+- **Lo que queda fuera no se menciona.** El ticket no tiene líneas de "fuera de alcance". Si algo queda fuera y tiene su propio ticket creado, aparece en Follow-up con su ID. Si no, no aparece.
 - **Responde solo lo que sabes.** Si una pregunta no la puedes contestar, dilo; queda en Pendientes en lugar de inventarse.
 - **Si es algo nuevo, dilo.** Si la función no existe, el skill lo indica y busca el patrón más parecido del producto para mantener consistencia.
 
