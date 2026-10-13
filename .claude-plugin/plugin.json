@@ -1,6 +1,6 @@
 {
   "name": "product-design-skill",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Turns meeting notes and requests into simple, non-technical product tickets, reviewed against the code of the repository where the agent runs.",
   "author": {
     "name": "Dario Diaz"
